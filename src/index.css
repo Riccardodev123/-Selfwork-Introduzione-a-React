@@ -1,0 +1,14 @@
+.title{
+  font-size: 50px;
+  font-style: oblique;
+}
+
+.label{
+  margin-right: 20px;
+}
+
+.input{
+  border-radius: 10px;
+  border: solid 1px red;
+  width: 20rem;
+}
