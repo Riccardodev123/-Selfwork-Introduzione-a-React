@@ -1,4 +1,4 @@
-.title{
+/* .title{
   font-size: 50px;
   font-style: oblique;
 }
@@ -11,4 +11,15 @@
   border-radius: 10px;
   border: solid 1px red;
   width: 20rem;
+} */
+
+/* Fine Selfwork Introduzione React */
+
+/* inizio Selfwork Componenti React */
+
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
