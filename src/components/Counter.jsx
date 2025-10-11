@@ -13,7 +13,6 @@ export default function Counter() {
 
   return (
     <>
-      <h2>Selfwork State Management</h2>
       <p>Counter: {counter}</p>
       <div className="d-flex">
         <button onClick={incrementByOne}>+</button>

@@ -1,13 +1,18 @@
-.title{
+hr{
+  width: 100%;
+  height: 10px;
+}
+
+.title {
   font-size: 50px;
   font-style: oblique;
 }
 
-.label{
+.label {
   margin-right: 20px;
 }
 
-.input{
+.input {
   border-radius: 10px;
   border: solid 1px red;
   width: 20rem;
@@ -22,6 +27,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/2000');
 }
 
 /* Fine Selfwork Componenti React */
