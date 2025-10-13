@@ -2,6 +2,7 @@ import Counter from "./components/Counter";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import List from "./components/List";
+import LoadingData from "./components/LoadingData";
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 
@@ -49,6 +50,13 @@ function App() {
 
       {/* Fine Selfwork Compound Components */}
 
+      {/* Inizio Selfwork Gestione Side-effect */}
+      <h2>Selfwork Gestione Side-effect</h2>
+      <hr />
+      <LoadingData />
+      <hr />
+
+      {/* Fine Selfwork Gestione Side-effect */}
     </>
   );
 }
