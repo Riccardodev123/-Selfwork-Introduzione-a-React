@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 export default function Posts() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState();
 
   const getPosts = async () => {
     const promise = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -16,11 +16,11 @@ export default function Posts() {
 
   return (
     <ul>
-      {posts.map((post) => (
+      {posts ? posts.map((post) => (
         <li key={post.id}>
           {post.title} - <Link to={`/posts/${post.id}`}>Detail</Link>
         </li>
-      ))}
+      )) : <p>Loading...</p>}
     </ul>
   );
 }
