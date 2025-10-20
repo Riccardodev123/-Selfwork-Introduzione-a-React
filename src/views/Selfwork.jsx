@@ -1,13 +1,17 @@
+import { useState } from "react";
 import Counter from "../components/Counter";
 import Form from "../components/Form";
 import Header from "../components/Header";
 import List from "../components/List";
 import LoadingData from "../components/LoadingData";
 import Main from "../components/Main";
+import useFetch from "../hooks/useFetch";
 
 const names = ["Qui", "Quo", "Qua"];
 
 export default function Selfwork() {
+  const [url, setUrl] = useState();
+  const data = useFetch(url, url);
   return (
     <>
       {/* Inizio Selfwork Introduzione a React */}
@@ -56,6 +60,26 @@ export default function Selfwork() {
       <hr />
 
       {/* Fine Selfwork Gestione Side-effect */}
+
+      {/* Inizio Selfwork Custom Hooks */}
+      <h2>Selfwork Custom hooks</h2>
+      <hr />
+      <h2>Titoli o Utenti</h2>
+      <button
+        onClick={() => setUrl("https://jsonplaceholder.typicode.com/posts")}
+      >
+        Posts
+      </button>
+      <button
+        onClick={() => setUrl("https://jsonplaceholder.typicode.com/users")}
+      >
+        Users
+      </button>
+      <ul>
+        {data &&
+          data.map((el) => <li key={el.id}>{el.title || el.name}</li>)}
+      </ul>
+      <hr />
     </>
   );
 }

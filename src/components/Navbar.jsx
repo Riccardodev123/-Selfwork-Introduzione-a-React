@@ -1,13 +1,21 @@
 // Navbar.jsx
 import { useContext } from "react";
-import { Link } from "react-router"; // CORRETTO: usare react-router-dom
+import { Link } from "react-router";
 import { UserContext } from "../context/UserContext";
+import useScroll from "../hooks/useScroll.js";
 
 export default function Navbar() {
   const { user, logout } = useContext(UserContext);
+  const [scrolled, scrollY] = useScroll();
+  const navbarClasses = `navbar navbar-expand-lg text-white sticky-top ${
+    scrollY > 0 ? "bg-dark" : "bg-danger"
+  }`;
 
   return (
-    <nav className="navbar navbar-expand-lg bg-dark text-white">
+    <nav
+      ref={scrolled}
+      className={navbarClasses}
+    >
       <div className="container-fluid">
         <Link className="navbar-brand text-white" to="/">
           Navbar
@@ -61,10 +69,7 @@ export default function Navbar() {
                   <span className="nav-link text-white">Ciao, {user.name}</span>
                 </li>
                 <li className="nav-item">
-                  <button
-                    className="btn btn-danger"
-                    onClick={logout}
-                  >
+                  <button className="btn btn-danger" onClick={logout}>
                     Logout
                   </button>
                 </li>
