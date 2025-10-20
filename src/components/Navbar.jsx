@@ -1,6 +1,11 @@
-import { Link } from "react-router";
+// Navbar.jsx
+import { useContext } from "react";
+import { Link } from "react-router"; // CORRETTO: usare react-router-dom
+import { UserContext } from "../context/UserContext";
 
 export default function Navbar() {
+  const { user, logout } = useContext(UserContext);
+
   return (
     <nav className="navbar navbar-expand-lg bg-dark text-white">
       <div className="container-fluid">
@@ -22,33 +27,49 @@ export default function Navbar() {
           {/* Sezione sinistra */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
-                className="nav-link active text-white"
-                aria-current="page"
-                to="/"
-              >
+              <Link className="nav-link active text-white" to="/">
                 Selfworks
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/posts">
-                Posts
-              </Link>
-            </li>
+            {user && (
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/posts">
+                  Posts
+                </Link>
+              </li>
+            )}
           </ul>
 
-          {/* Sezione destra: login/register */}
+          {/* Sezione destra */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/register">
-                Registrati
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/login">
-                Accedi
-              </Link>
-            </li>
+            {!user ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/register">
+                    Registrati
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/login">
+                    Accedi
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <span className="nav-link text-white">Ciao, {user.name}</span>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-danger"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

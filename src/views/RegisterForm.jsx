@@ -1,18 +1,42 @@
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
+
 export default function RegisterForm() {
+  const { register } = useContext(UserContext);
+
+  const [userName, setUserName] = useState();
+  const [userEmail, setUserEmail] = useState();
+
+  const handleChange = (event) => {
+    if (event.target.id === "name") {
+      setUserName(event.target.value);
+    } else if (event.target.id === "email") {
+      setUserEmail(event.target.value);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if ((userName, userEmail)) {
+      register({ name: userName, email: userEmail });
+    }
+  };
+
   return (
     <section className="card shadow-sm my-4 rounded container">
       <div className="row">
         <div className="col-12">
           <h2 className="h4 text-center">Registrati</h2>
-          <form className="card-body">
+          <form className="card-body" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="registerName" className="form-label">
-                Nome completo
+                Username
               </label>
               <input
+                onChange={handleChange}
                 type="text"
                 className="form-control"
-                id="registerName"
+                id="name"
                 placeholder="Il tuo nome completo"
                 required
               />
@@ -22,34 +46,11 @@ export default function RegisterForm() {
                 Email
               </label>
               <input
+                onChange={handleChange}
                 type="email"
                 className="form-control"
-                id="registerEmail"
+                id="email"
                 placeholder="Inserisci la tua email"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="registerPassword" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="registerPassword"
-                placeholder="Crea una password"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="registerConfirmPassword" className="form-label">
-                Conferma Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="registerConfirmPassword"
-                placeholder="Ripeti la password"
                 required
               />
             </div>
