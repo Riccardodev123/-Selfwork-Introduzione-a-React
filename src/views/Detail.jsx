@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLoaderData } from "react-router";
 
 export default function Detail() {
-  const { id } = useParams();
-
-  const [post, setPost] = useState([]);
-
-  const getSinglePost = async () => {
-    const promise = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
-    const json = await promise.json();
-    setPost(json);
-  };
-
-  useEffect(() => {
-    getSinglePost();
-  }, []);
+  const post = useLoaderData();
 
   return (
     <>
       <h2>Detail page of:</h2>
-      {post.title ? (
+      {post ? (
         <>
           <h3>Title: {post.title}</h3>
           <p>
