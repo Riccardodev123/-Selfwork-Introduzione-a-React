@@ -12,10 +12,7 @@ export default function Navbar() {
   }`;
 
   return (
-    <nav
-      ref={scrolled}
-      className={navbarClasses}
-    >
+    <nav ref={scrolled} className={navbarClasses}>
       <div className="container-fluid">
         <Link className="navbar-brand text-white" to="/">
           Navbar
@@ -37,6 +34,14 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link active text-white" to="/">
                 Selfworks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link active text-white"
+                to="/tailwind_daisyUI"
+              >
+                Tailwind + DaisyUI
               </Link>
             </li>
             {user && (

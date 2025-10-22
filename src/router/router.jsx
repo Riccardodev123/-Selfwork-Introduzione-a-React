@@ -6,6 +6,7 @@ import Detail from "../views/Detail.jsx";
 import { getAllPostsLoader, getSinglePost } from "./loaders.jsx";
 import RegisterForm from "../views/RegisterForm.jsx";
 import LoginForm from "../views/LoginForm.jsx";
+import Tailwind_DaisyUi from "../views/Tailwind_DaisyUi.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
         path: "/login",
         Component: LoginForm,
       },
+      { path: "/tailwind_daisyUI", Component: Tailwind_DaisyUi },
     ],
   },
 ]);
