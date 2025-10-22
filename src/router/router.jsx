@@ -35,7 +35,10 @@ const router = createBrowserRouter([
         path: "/login",
         Component: LoginForm,
       },
-      { path: "/tailwind_daisyUI", Component: Tailwind_DaisyUi },
+      {
+        path: "/tailwind_daisyUI",
+        Component: Tailwind_DaisyUi,
+      },
     ],
   },
 ]);
